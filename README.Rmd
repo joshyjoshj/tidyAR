@@ -1,0 +1,71 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# tidyAR
+
+<!-- badges: start -->
+
+<!-- badges: end -->
+
+The tidyAR package is a tool for creating wide format dataframes with columns as predictor variables for various types of Autoregressive (AR) models, and also includes functions that output formulas suitable for fitting these models using the 'lm' function or other modeling functions in R.
+
+## Installation
+
+You can install the development version of tidyAR like so:
+
+``` r
+devtools::install_github("tidyAR")
+```
+
+## Example
+
+This example will show how to create a HAR model for SP500 volatility. The first steps are to load the packages and calculate the log returns.
+
+```{r example1}
+
+library(tidyverse)
+library(tidyAR)
+## Import SP500 return data from astsa() package and rename the columns
+## And calculating the log returns
+data <- data.frame(as.numeric(astsa::sp500.gr))%>%rename(returns = 1)%>%mutate(log_returns = log(1+returns))
+head(data)
+
+```
+
+Now using the `har_df()` function the data will be mutated to include the predictors for a HAR model.
+
+```{r example2}
+
+har_dataframe <- data%>%har_df("log_returns")
+head(har_dataframe)
+
+```
+
+Using the `%>%` (pipe) operator the whole operation can be conveniently placed into one call.
+
+```{r example3}
+head(data.frame(as.numeric(astsa::sp500.gr))%>%rename(returns = 1)%>%
+       mutate(log_returns = log(1+returns))%>%har_df("log_returns"))
+```
+
+
+A further extension of tidyAR is the formula output function. Setting `formula == TRUE` will output the formula for the model specified in addition to the data.
+
+```{r example 4}
+har_list <-data%>%har_df("log_returns",formula = TRUE)
+har_list$Formula
+```
+
+The formulas can be placed into standard `r` functions such as `stats::lm()`, `brms::brm()` and `lme4::glmer()`.
