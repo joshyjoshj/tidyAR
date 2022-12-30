@@ -1,12 +1,20 @@
 Package: tidyAR
-Title: What the Package Does (One Line, Title Case)
+Title: Creating wide format dataframes with columns as predictor variables for types of Autoregressive Models
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    person("Josh", "Bale", , "joshbale1234@gmail.com", role = c("aut", "cre"))
+Description: The tidyAR package is a tool for creating wide format dataframes with columns as predictor variables for various types of Autoregressive (AR) models, 
+  and also includes functions that output formulas suitable for fitting these models using the 'lm' function or other modeling functions in R.
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.0.0
+RoxygenNote: 7.2.3
+Imports:
+  purrr,
+  dplyr,
+  tidyr,
+  rlang,
+  magrittr,
+  stats
+URL: https://github.com/joshyjoshj/tidyAR
+BugReports: https://github.com/joshyjoshj/tidyAR/issues
