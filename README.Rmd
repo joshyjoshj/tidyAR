@@ -26,7 +26,7 @@ The tidyAR package is a tool for creating wide format dataframes with columns as
 You can install the development version of tidyAR like so:
 
 ``` r
-devtools::install_github("tidyAR")
+devtools::install_github("joshyjoshj/tidyAR")
 ```
 
 ## Example

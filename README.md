@@ -17,7 +17,7 @@ in R.
 You can install the development version of tidyAR like so:
 
 ``` r
-devtools::install_github("tidyAR")
+devtools::install_github("joshyjoshj/tidyAR")
 ```
 
 ## Example
@@ -104,7 +104,7 @@ addition to the data.
 har_list <-data%>%har_df("log_returns",formula = TRUE)
 har_list$Formula
 #> log_returns ~ daily + weekly + monthly + quarterly
-#> <environment: 0x00000000162ba6f8>
+#> <environment: 0x000000001660a698>
 ```
 
 The formulas can be placed into standard `r` functions such as
