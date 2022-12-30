@@ -39,7 +39,7 @@ ar_df <- function(data, y = NULL, p, sort = NULL, formula = FALSE, na.rm = FALSE
     }
   )
 
-  # Checking Target exists within dataframe
+  # Checking target exists within dataframe
   if (target %in% colnames(dataframe) == FALSE) {
     stop("The y value does not exist in the dataframe")
   }
