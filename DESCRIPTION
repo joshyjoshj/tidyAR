@@ -15,6 +15,7 @@ Imports:
   tidyr,
   rlang,
   magrittr,
-  stats
+  stats,
+  tidyselect
 URL: https://github.com/joshyjoshj/tidyAR
 BugReports: https://github.com/joshyjoshj/tidyAR/issues
